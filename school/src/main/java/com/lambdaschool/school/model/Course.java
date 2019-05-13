@@ -1,14 +1,10 @@
 package com.lambdaschool.school.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.lambdaschool.school.view.View;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "course")
@@ -16,16 +12,16 @@ public class Course
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonView(View.CoursesOnly.class)
+//    @JsonView(View.CoursesOnly.class)
     private long courseid;
 
-    @JsonView(View.CoursesOnly.class)
+//    @JsonView(View.CoursesOnly.class)
     private String coursename;
 
     @ManyToOne
     @JoinColumn(name = "instructid")
     @JsonIgnoreProperties("courses")
-    @JsonView(View.CoursesOnly.class)
+//    @JsonView(View.CoursesOnly.class)
     private Instructor instructor;
 
     @ManyToMany(mappedBy = "courses")
